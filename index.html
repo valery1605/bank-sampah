@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Sampah NodeTroopers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#43a047">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">♻️ Bank Sampah NodeTroopers</div>
+            <a href="login.html" id="admin-link" class="admin-link" aria-label="Admin login">🔒</a>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Buka menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#iuran">Iuran</a></li>
+                <li><a href="#pelaporan">Pelaporan</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#lokasi">Lokasi</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <!-- Admin login moved to footer to separate from main navigation -->
+            </ul>
+            <div id="resident-area" class="resident-area"></div>
+        </nav>
+    </header>
+
+   <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>♻️ Bank Sampah NodeTroopers</h1>
+            <p>Mengumpulkan, memilah, dan mendaur ulang sampah demi lingkungan bersih dan ekonomi sirkular.</p>
+            <a href="#layanan" class="btn">Pelajari Layanan</a>
+        </div>
+    </section>
+
+    <!-- IURAN & ANGGOTA -->
+    <section id="iuran" class="services">
+        <h2>💳 Iuran & Manajemen Anggota</h2>
+        <div class="iuran-grid">
+            <div class="card">
+                <h3>Daftarkan Rumah</h3>
+                <form id="register-form">
+                    <label>Nama Kepala Keluarga<input type="text" id="name" required></label>
+                    <label>Alamat<input type="text" id="address" required></label>
+                    <label>Iuran per bulan (Rp)<input type="number" id="fee" value="10000" required></label>
+                    <button type="submit" class="btn">Daftarkan</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Daftar Anggota</h3>
+                <div id="members-list">Belum ada anggota terdaftar.</div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- PELAPORAN SAMPAH -->
+    <section id="pelaporan" class="services">
+        <h2>🚨 Pelaporan Sampah Belum Diangkut</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <p>Jika sampah di rumah Anda belum diangkut pada hari jadwal, laporkan di sini. Sistem akan memberitahu petugas dan menjadwalkan kedatangan.</p>
+                <p class="muted">(Demo: kedatangan petugas disimulasikan dalam 15 detik setelah laporan)</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Pickup Tertunda</h3>
+                <div id="pending-pickups">Tidak ada pickup tertunda.</div>
+            </div>
+        </div>
+    </section>
+    <section id="tentang" class="about">
+        <h2>� Tentang Kami</h2>
+        <div class="about-content">
+            <p class="highlight-text">Bank Sampah NodeTroopers bekerja bersama komunitas untuk mengurangi limbah, meningkatkan nilai ekonomi sampah, dan mendukung perilaku ramah lingkungan.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>🚚 Pengumpulan</h3>
+                    <p>Kami menerima sampah terpilah dari rumah tangga dan komunitas: plastik, kertas, logam, dan organik. Jadwal pengumpulan teratur memudahkan partisipasi.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>� Pemilahan</h3>
+                    <p>Setiap sampah dipilah berdasarkan jenis dan kualitas untuk memastikan material bernilai dapat dimaksimalkan dan mengurangi kontaminasi.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>🔄 Daur Ulang & Pemanfaatan</h3>
+                    <p>Material yang layak dijual atau didaur ulang diolah bekerja sama dengan mitra industri. Organik dijadikan kompos untuk pertanian urban.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="services">
+        <h2>�️ Layanan Kami</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🚛 Pengumpulan Terjadwal</h3>
+                <p>Kami menyediakan rute pengumpulan mingguan untuk lingkungan yang mendaftar. Cukup simpan sampah terpilah di titik pickup pada hari yang ditentukan.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>⚖️ Penimbangan & Nilai Tukar</h3>
+                <p>Anggota bisa menimbang sampah yang dikumpulkan dan menerima kredit/imbalan berdasarkan berat dan jenis material.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>📚 Edukasi & Komunitas</h3>
+                <p>Kami menyelenggarakan workshop memilah sampah, pembuatan kompos, dan program sekolah untuk membangun budaya zero-waste.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="lokasi" class="contact">
+        <h2>📍 Lokasi & Titik Pengumpulan</h2>
+        <div class="contact-content">
+            <p>Bank Sampah NodeTroopers</p>
+            <p>Jl. Perbanas, RT.6/RW.7, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940</p>
+            <p>Jadwal pengumpulan: Selasa & Jumat, pukul 08.00 - 12.00</p>
+        </div>
+    </section>
+
+    <section id="kontak" class="contact">
+        <h2>☎️ Kontak</h2>
+        <div class="contact-content">
+            <p>NodeTroopers - Koordinator Bank Sampah</p>
+            <p>📞 Telepon: (021) 1234-5678</p>
+            <p>✉️ Email: banksampah@nodetroopers.id</p>
+            <p>🌐 Info & Pendaftaran: https://bank-sampah--RasyaValery1.replit.app</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Bank Sampah NodeTroopers</p>
+        <p class="footer-admin"><a href="login.html" style="color:var(--muted);">Admin (Login)</a></p>
+    </footer>
+
+        <!-- Konfigurasi Ngrok -->
+        <script src="sync-config.js"></script>
+        
+        <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+        <script src="app.js"></script>
+        <script>
+            // Pastikan tidak otomatis tetap login sebagai admin ketika membuka beranda
+            try{ sessionStorage.removeItem('bs_token'); }catch(e){/* ignore */}
+        </script>
+                <script>
+                    // Tampilkan ikon admin hanya bila token admin ada di sessionStorage
+                    (function(){
+                        try{
+                            const adminLink = document.getElementById('admin-link');
+                            if(!adminLink) return;
+                            const token = sessionStorage.getItem('bs_token');
+                            // show icon if admin token exists
+                            if(token) adminLink.classList.add('visible');
+                            // also show when we're on the login.html page so admin can reach login
+                            if(location.pathname && location.pathname.endsWith('login.html')) adminLink.classList.add('visible');
+                        }catch(e){/* ignore */}
+                    })();
+                </script>
+</body>
+</html>
