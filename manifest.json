@@ -1,0 +1,11 @@
+{
+  "name": "Bank Sampah NodeTroopers",
+  "short_name": "NodeSampah",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f2f8f2",
+  "theme_color": "#43a047",
+  "icons": [
+    { "src": "bank-sampah-icon.svg", "sizes": "192x192", "type": "image/svg+xml" }
+  ]
+}

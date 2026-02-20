@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login Admin - Bank Sampah NodeTroopers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-card">
+    <h2>Login Admin</h2>
+    <form id="login-form">
+      <div class="auth-field">
+        <label for="username">Username</label>
+        <input id="username" type="text" required>
+      </div>
+      <div class="auth-field">
+        <label for="password">Password</label>
+        <input id="password" type="password" required>
+      </div>
+      <div class="auth-actions">
+        <button class="btn" type="submit">Masuk</button>
+        <a href="index.html" style="color:var(--muted);">Kembali</a>
+      </div>
+    </form>
+    <p class="auth-note">Demo: gunakan username <strong>admin</strong> dan password <strong>password123</strong></p>
+  </main>
+  <script src="auth.js"></script>
+</body>
+</html>

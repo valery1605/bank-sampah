@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Bank Sampah</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">♻️ Admin Dashboard</div>
+            <a href="index.html" style="color:var(--brand-light);text-decoration:none;margin-left:auto;">Kembali ke Beranda</a>
+        </nav>
+    </header>
+
+    <main style="padding: 80px 2rem 2rem; max-width: 1200px; margin: 0 auto;">
+        <h1>Dashboard Admin</h1>
+        
+        <section id="admin-members" class="services" style="margin-top:0; padding-top:0;">
+            <h2>Daftar Anggota Terdaftar</h2>
+            <div id="members-list-admin">
+                <p>Menunggu data dari server...</p>
+            </div>
+        </section>
+
+        <section id="admin-pickups" class="services">
+            <h2>Laporan Sampah Belum Diangkut</h2>
+            <div id="pickups-list-admin">
+                <p>Menunggu data dari server...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Konfigurasi & Socket.io -->
+    <script src="sync-config.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="admin-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+/* RESET DAN BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* Palet warna yang mudah diubah */
+    --brand: #43a047; /* warna utama (hijau sedang) */
+    --brand-dark: #1b5e20; /* header / teks aksen */
+    --brand-darker: #2e7d32; /* hover/darker */
+    --brand-light: #e8f5e9; /* teks terang di header */
+    --bg: #f2f8f2; /* latar halaman */
+    --text: #263238; /* teks utama */
+    --muted: #6b6b6b; /* teks sekunder */
+    --card-bg: #ffffff; /* kartu / panel */
+    --accent: #66bb6a; /* aksen border kiri timeline */
+    --separator: rgba(27,94,32,0.12); /* garis antar seksi */
+    --shadow-1: rgba(16,63,22,0.06);
+    --shadow-2: rgba(27,94,32,0.04);
+    --input-border: #d0e8d0;
+    --soft-border: #e6f4e6;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+/* HEADER */
+header {
+    background-color: var(--brand-dark);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: var(--brand-light);
+    font-size: 1.20rem;
+    font-weight: 700;
+}
+
+.admin-link { display:none; color: var(--brand-light); text-decoration:none; margin-left:8px; font-size:1.05rem; opacity:0.9; }
+.admin-link.visible { display:inline-block; }
+.admin-link:hover{ opacity:1; transform:translateY(-1px); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: 5rem; /* spacing after logo */
+}
+
+.nav-links a {
+    color: var(--brand-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--brand);
+}
+
+.resident-area { color: var(--brand-light); font-weight:600; display:flex; align-items:center; gap:0.5rem; margin-left: auto; }
+.resident-area .res-name{ font-size:0.95rem; color: var(--brand-light); }
+.resident-area .res-logout{ background: transparent; border:1px solid rgba(255,255,255,0.12); padding:6px 8px; border-radius:6px; color:var(--brand-light); cursor:pointer; }
+.resident-area .res-logout:hover{ background: rgba(255,255,255,0.06); }
+
+/* smaller nav link size and wrapping improvements */
+.nav-links a{ font-size:0.95rem; padding:6px 8px; }
+
+@media (max-width: 768px){
+    .nav-links { display: none; }
+    .resident-area { margin-left: 0; }
+}
+
+/* hamburger / mobile nav */
+.nav-toggle{ display:none; background:transparent; border:0; color:var(--brand-light); font-size:1.25rem; margin-left:8px; cursor:pointer; }
+.nav-links.open{ display:flex; position:absolute; top:64px; left:0; right:0; background:var(--brand-dark); flex-direction:column; padding:1rem; gap:0.5rem; }
+.nav-links.open a{ color:var(--brand-light); }
+
+@media (max-width: 768px){
+    .nav-toggle{ display:inline-block; }
+    nav{ padding:0.5rem 1rem; }
+    .nav-links{ display:none; position:relative; }
+}
+
+/* touch-friendly tweaks */
+button.btn, .auth-field input { touch-action: manipulation; }
+
+/* Mobile-mode when installed as PWA: force mobile layout even on larger screens */
+.mobile-mode nav { padding:0.5rem 1rem; }
+.mobile-mode .nav-links{ display:flex !important; position:relative; top:0; left:0; right:0; background:var(--brand-dark); flex-direction:column; padding:1rem; gap:0.5rem; }
+.mobile-mode .nav-links a{ color:var(--brand-light); }
+.mobile-mode .resident-area{ order:2; margin-left:0; }
+.mobile-mode .hero{ height:50vh; }
+
+/* HERO SECTION */
+  /* HERO SECTION */
+.hero {
+    height: 70vh;
+    background-image: linear-gradient(rgba(27,94,32,0.6), rgba(27,94,32,0.4)), url("makanan.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding-top: 4rem; /* agar header tidak menutupi */
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--brand);
+    color: #ffffff;
+    padding: 12px 26px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: transform 0.12s ease, background-color 0.12s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--brand-darker);
+}
+
+/* MAKANAN SECTION */
+.about {
+    padding: 5rem 2rem;
+    background-color: #f4f4f4; 
+    text-align: center;
+}
+
+.about {
+    padding: 5rem 2rem;
+    background-color: transparent;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--brand-dark);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.highlight-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brand-darker);
+    margin-bottom: 1.5rem;
+}
+
+/* Timeline Styles */
+.timeline {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.timeline-item {
+    background-color: var(--card-bg);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px var(--shadow-1);
+    border-left: 6px solid var(--accent);
+}
+
+.timeline-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.timeline-item p {
+    font-size: 1rem;
+}
+
+/* SERVICES SECTION */
+.services {
+    padding: 4rem 2rem;
+    background-color: transparent;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: var(--brand-dark);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 1.6rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px var(--shadow-2);
+    transition: transform 0.18s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+}
+
+.service-card h3 {
+    color: var(--brand-darker);
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+}
+
+.service-card p {
+    color: #455a48;
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.service-card p strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.service-card p.sub-bahan {
+    margin-top: 1.5rem;
+    margin-bottom: 1.0rem;
+}
+
+.service-card p:not(:first-of-type) {
+    margin-top: 1.5rem;
+}
+
+.service-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.service-card ul li {
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* CONTACT SECTION */
+.contact {
+    padding: 3.5rem 2rem;
+    background-color: #e8f5e9;
+    text-align: center;
+    color: var(--brand-dark);
+    border-top: 1px solid #dcedc8;
+}
+
+.contact h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.contact-content p {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--brand-darker);
+    color: var(--brand-light);
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .hero {
+        height: 60vh;
+        padding-top: 3.5rem;
+    }
+}
+
+ html {
+    scroll-behavior: smooth;
+}
+
+/* Separator antar seksi */
+#iuran, #pelaporan, #tentang, #layanan, #lokasi, #kontak {
+    border-top: 1px solid var(--separator); /* garis lembut dari variabel */
+    padding-top: 2.25rem; /* beri ruang setelah garis */
+    margin-top: 2.25rem; /* pisahkan dari seksi sebelumnya */
+}
+
+/* sedikit variasi untuk hero -> tidak perlu border */
+#home { margin-top: 0; }
+
+/* Iuran / anggota / pickups styles */
+.iuran-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.iuran-grid .card {
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(27,94,32,0.04);
+}
+.iuran-grid label { display: block; margin-bottom: 0.5rem; font-size: 0.95rem; }
+.iuran-grid input[type="text"], .iuran-grid input[type="number"]{ width: 100%; padding: 8px; margin-top:6px; border:1px solid #d0e8d0; border-radius:6px; }
+.members-table { display:flex; flex-direction:column; gap:0.6rem; }
+.member-row{ display:flex; justify-content:space-between; align-items:center; padding:10px; border-radius:8px; background:#f6fff6; border:1px solid #e6f4e6; }
+.member-actions button{ margin-left:8px; }
+.muted{ color: #6b6b6b; font-size:0.9rem; }
+.pickups-list{ display:flex; flex-direction:column; gap:0.6rem; }
+.pickup-item{ padding:10px; background:#fff; border-radius:8px; border:1px solid #e6f4e6; }
+
+@media (max-width:900px){
+    .iuran-grid{ grid-template-columns: 1fr; }
+}
+
+/* Auth forms (login / register) */
+.auth-card { max-width:480px; margin:6rem auto; padding:1.5rem; background:var(--card-bg); border-radius:10px; box-shadow: 0 6px 20px rgba(0,0,0,0.04); }
+.auth-card h2{ margin-bottom:0.75rem; color:var(--brand-dark); }
+.auth-field{ display:block; margin-bottom:0.9rem; }
+.auth-field label{ display:block; font-size:0.95rem; color:var(--text); margin-bottom:6px; }
+.auth-field input{ width:100%; padding:10px 12px; border:1px solid var(--input-border); border-radius:8px; font-size:0.95rem; }
+.auth-actions{ margin-top:0.75rem; display:flex; align-items:center; gap:0.75rem; }
+.auth-actions .btn{ padding:10px 14px; }
+.auth-note{ margin-top:0.75rem; color:var(--muted); font-size:0.95rem; }
+
+/* Info pembayaran di kartu anggota */
+.last-paid-info {
+    margin-top: 4px;
+}
+
+/* Tombol hapus di admin */
+.btn-delete {
+    background-color: #ef5350; /* Merah */
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-delete:hover { background-color: #d32f2f; }
+
+/* Tabel data di halaman admin */
+.admin-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px var(--shadow-2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.admin-data-table th,
+.admin-data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--soft-border);
+}
+
+.admin-data-table th {
+    background-color: var(--brand-light);
+    font-weight: 600;
+    color: var(--brand-dark);
+}
+
+.admin-data-table tr:hover {
+    background-color: #f9fdf9;
+}
+
+.admin-data-table td:last-child {
+    text-align: center;
+}
+
+/* Badge untuk status laporan */
+.status-badge { padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; color: #fff; text-transform: capitalize; }
+.status-badge.status-dilaporkan { background-color: #ffa726; /* Oranye */ }
+.status-badge.status-dijadwalkan { background-color: #29b6f6; /* Biru */ }
+.status-badge.status-selesai { background-color: #66bb6a; /* Hijau */ }
